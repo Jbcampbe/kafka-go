@@ -373,7 +373,10 @@ func (d *Dialer) dialContext(ctx context.Context, network string, addr string) (
 			hostname := address[:colonPos]
 			c.ServerName = hostname
 		}
-		return d.connectTLS(ctx, conn, c)
+		conn, err = d.connectTLS(ctx, conn, c)
+		if err != nil {
+			return nil, fmt.Errorf("failed to establish TLS connection: %w", err)
+		}
 	}
 
 	return conn, nil
