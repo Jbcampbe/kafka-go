@@ -1,6 +1,8 @@
 module github.com/segmentio/kafka-go
 
-go 1.23
+go 1.24.0
+
+toolchain go1.24.2
 
 require (
 	github.com/klauspost/compress v1.15.9
@@ -18,5 +20,7 @@ require (
 	golang.org/x/text v0.23.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/segmentio/kafka-go => .
 
 retract [v0.4.36, v0.4.37]
